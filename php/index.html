@@ -29,6 +29,68 @@
     <!--[if lt IE 9]>
     <script src="lib/js/html5shiv.js"></script>
     <![endif]-->
+
+    <style>
+
+      .wizard .reveal .state-background {
+        background:url(images/wizard_tower.png);
+        background-repeat:no-repeat;
+        background-position:center center;
+        -moz-animation: pulse 8s ease;
+        -webkit-animation: pulse 8s ease;
+        -moz-animation-iteration-count: infinite;
+        -webkit-animation-iteration-count: infinite;
+        opacity: 0.0;
+      }
+
+      @-moz-keyframes pulse {
+         0% {opacity: 0.0;}
+         50% {opacity: 0.3;}
+         100% {opacity: 0.0;}
+      }
+
+      @-webkit-keyframes pulse {
+         0% {opacity: 0.0;}
+         50% {opacity: 0.5;}
+         100% {opacity: 0.0;}
+      }
+
+      .learning .reveal .state-background {
+        background:url(images/crossroads.jpg);
+        background-repeat:no-repeat;
+        background-position:center center;
+        opacity:0.5;
+      }
+
+      .rockstar .reveal .state-background {
+        background:url(images/cheering.jpg);
+        background-repeat:no-repeat;
+        background-position:center center;
+        opacity:0.75;
+      }
+
+      .suspect .reveal .state-background {
+        background:url(images/eyebrow.png);
+        background-repeat:no-repeat;
+        background-position:center center;
+        opacity:0.5;
+      }
+
+      .namespaces .reveal .state-background {
+        background:url(images/japanese_house.png);
+        background-repeat:no-repeat;
+        background-position:center center;
+        opacity:0.7;
+      }
+
+      .selinux .reveal .state-background {
+        background:url(images/norad_vault.png);
+        background-repeat:no-repeat;
+        background-position:center center;
+        opacity:0.7;
+      }
+    </style>
+
   </head>
 
   <body>
@@ -36,67 +98,6 @@
     <div class="reveal">
 
       <div class="slides">
-        <style>
-
-          .wizard .reveal .state-background {
-            background:url(images/wizard_tower.png);
-            background-repeat:no-repeat;
-            background-position:center center;
-            -moz-animation: pulse 8s ease;
-            -webkit-animation: pulse 8s ease;
-            -moz-animation-iteration-count: infinite;
-            -webkit-animation-iteration-count: infinite;
-            opacity: 0.0;
-          }
-
-          @-moz-keyframes pulse {
-             0% {opacity: 0.0;}
-             50% {opacity: 0.3;}
-             100% {opacity: 0.0;}
-          }
-
-          @-webkit-keyframes pulse {
-             0% {opacity: 0.0;}
-             50% {opacity: 0.5;}
-             100% {opacity: 0.0;}
-          }
-
-          .learning .reveal .state-background {
-            background:url(images/crossroads.jpg);
-            background-repeat:no-repeat;
-            background-position:center center;
-            opacity:0.5;
-          }
-
-          .rockstar .reveal .state-background {
-            background:url(images/cheering.jpg);
-            background-repeat:no-repeat;
-            background-position:center center;
-            opacity:0.75;
-          }
-
-          .suspect .reveal .state-background {
-            background:url(images/eyebrow.png);
-            background-repeat:no-repeat;
-            background-position:center center;
-            opacity:0.5;
-          }
-
-          .namespaces .reveal .state-background {
-            background:url(images/japanese_house.png);
-            background-repeat:no-repeat;
-            background-position:center center;
-            opacity:0.7;
-          }
-
-          .selinux .reveal .state-background {
-            background:url(images/norad_vault.png);
-            background-repeat:no-repeat;
-            background-position:center center;
-            opacity:0.7;
-          }
-        </style>
-
         <section data-state="wizard">
           <h3 class="middle2">The Wizardry Behind the OpenShift PaaS</h3>
           <p>Matt Hicks, Director of OpenShift, Red Hat</p>
@@ -190,39 +191,17 @@ echo "Done"
         </section>
 
         <section>
-          <h3>Virtualization has many strengths</h3>
-          <ul>
-            <li class="fragment roll-in">Secure segmentation of workloads
-            <li class="fragment roll-in">Strong networking segmentation
-            <li class="fragment roll-in">Widespread understanding
-          </ul>
+          <h4 class="middle2">Virtualization has many strengths</h4>
+          <h5 class="fragment">(... and disadvantages)</h5>
         </section>
 
         <section>
-          <h3>... and disadvantages</h3>
-          <ul>
-            <li class="fragment roll-in">Sometimes a full VM isn't warranted
-            <li class="fragment roll-in">A running OS is a lot of overhead
-            <li class="fragment roll-in">Each VM needs to be maintained
-          </ul>
+          <h3 class="middle2">Same goes for containers</h3>
+          <h5 class="fragment">(... but more on that later)</h5>
         </section>
 
         <section>
-          <h3>Containers have advantages</h3>
-          <ul>
-            <li class="fragment roll-in">Very lightweight, all sharing the core OS
-            <li class="fragment roll-in">Ability to share resources as needed
-            <li class="fragment roll-in">Can reduce VM sprawl
-          </ul>
-        </section>
-
-        <section>
-          <h3>... and disadvantages</h3>
-          <ul>
-            <li class="fragment roll-in">Still actively evolving
-            <li class="fragment roll-in">Network segmentation is ... complex
-            <li class="fragment roll-in">Opens attack vectors locally
-          </ul>
+          <h3 class="middle">The Key: How to <i>interact</i> with containers</h3>
         </section>
 
         <section>
@@ -264,7 +243,7 @@ end
         </section>
 
         <section>
-          <h4 class="middle2">Puppet -> Setup new VM</h4>
+          <h4 style="margin-top:150px">Puppet -> Setup new VM</h4>
           <h4>MCollective -> Setup new Container</h4>
           <h4>MCollective -> Interact w / Container</h4>
         </section>
@@ -315,7 +294,7 @@ end
           </ul>
         </section>
 
-        <section data-state="cgroups" fullscreen-img="images/highway.jpg">
+        <section fullscreen-img="images/highway.jpg">
           <h2 class="invert middle">Control Groups</h2>
         </section>
 
@@ -350,7 +329,8 @@ end
         </section>
 
         <section>
-          <h2 class="middle">This changes everything...</h2>
+          <h3 class="middle2">Not just new technology</h3>
+          <h3 class="fragment">New ways to harness them</h3>
         </section>
 
         <section>
@@ -366,8 +346,8 @@ end
 
         <section>
           <h3>Thank you</h3>
-          <p>This presentation running on <a href="http://northeastlinuxfest-cloudydemo.rhcloud.com">OpenShift</a></p>
-          <p>Source available on <a href="http://github.com/matthicksj/wizardry-presentation">GitHub</a></p>
+          <p>This presentation running on <a href="http://puppetconf-cloudydemo.rhcloud.com">OpenShift</a></p>
+          <p>Source available on <a href="http://github.com/matthicksj/puppetconf">GitHub</a></p>
           <p>Developed in HTML5 with <a href="https://github.com/hakimel/reveal.js">reveal.js</a></p>
           <p>Matt Hicks, <a href="http://twitter.com/matthicksj">@matthicksj</a></p>
         </section>
@@ -447,7 +427,7 @@ end
       });
     </script>
 
-    <div class="footer" class="share-reveal" style="position: absolute; bottom: 10px; left: 50%; margin-left: -110px; z-index: 20;">
+    <div class="footer share-reveal" style="position: absolute; bottom: 10px; left: 50%; margin-left: -110px; z-index: 20;">
       <p>MATT HICKS - PuppetConf 2013</p>
     </div>
   </body>

@@ -69,6 +69,13 @@
         opacity:0.75;
       }
 
+      .police .reveal .state-background {
+        background:url(images/police_car.jpg);
+        background-repeat:no-repeat;
+        background-position:center center;
+        opacity:0.75;
+      }
+
       .suspect .reveal .state-background {
         background:url(images/eyebrow.png);
         background-repeat:no-repeat;
@@ -117,8 +124,8 @@
         </section>
 
         <section>
-          <h3 class="middle2">You focus on your application</h3>
-          <h3>We'll focus on managing it</h3>
+          <h4 class="middle2">If you write apps, we help manage them</h4>
+          <h4>If you manage systems, we'll make it easier</h4>
         </section>
 
         <section>
@@ -174,7 +181,7 @@ echo "Done"
         </section>
 
         <section>
-          <h2 class="middle">But...</h2>
+          <h3 class="middle">But...</h3>
         </section>
 
         <section>
@@ -182,92 +189,18 @@ echo "Done"
         </section>
 
         <section data-state="wizard">
-          <h2 class="middle2">Introducing Linux Containers</h2>
-        </section>
-
-      <section data-state="suspect">
-          <h2 class="middle2 spoken">Containers?</h2>
-          <h3 class="spoken">What about virtualization?</h3>
-        </section>
-
-        <section>
-          <h4 class="middle2">Virtualization has many strengths</h4>
-          <h5 class="fragment">(... and disadvantages)</h5>
-        </section>
-
-        <section>
-          <h3 class="middle2">Same goes for containers</h3>
-          <h5 class="fragment">(... but more on that later)</h5>
-        </section>
-
-        <section>
-          <h3 class="middle">The Key: How to <i>interact</i> with containers</h3>
-        </section>
-
-        <section>
-          <h2 class="middle">Enter: MCollective</h2>
-        </section>
-
-        <section>
-          <h3>The MCollective Agent:</h3>
-          <pre><code>
-metadata :name => "Openshift Origin Management",
-            :description => "Agent to manage Openshift Origin services",
-
-action "cartridge_do", :description => "run a cartridge action" do
-    display :always
-
-    input :cartridge,
-        :type => :string,
-        :validation => '\A[a-zA-Z0-9\.\-\/_]+\z',
-        :optional => false,
-        :maxlength => 64
-...
-
-end
-          </code></pre>
-        </section>
-
-        <section>
-          <h4 class="middle2">Puppet -> Setup new VM</h4>
-          <h4>MCollective -> Setup new Container</h4>
-        </section>
-
-        <section>
-          <h3>Primary Functions</h3>
-          <ul>
-            <li class="fragment roll-in">Query: Find a matching machine.
-            <li class="fragment roll-in">Execute: Run a command on that machine.
-            <li class="fragment roll-in">Control: Limit the applicable commands.
-          </ul>
-        </section>
-
-        <section>
-          <h4 style="margin-top:150px">Puppet -> Setup new VM</h4>
-          <h4>MCollective -> Setup new Container</h4>
-          <h4>MCollective -> Interact w / Container</h4>
-        </section>
-
-        <section>
-          <h4>Why MCollective versus {other tool}?</h4>
-          <ul>
-            <li class="fragment roll-in">Development: Easy Agent Development
-            <li class="fragment roll-in">Messaging: Utilizes ActiveMQ
-            <li class="fragment roll-in">Security: Message Signing, Audit, etc.
-          </ul>
-        </section>
-
-        <section>
-          <h3 class="middle2">Is this really worth it for containers?</h3>
-        </section>
-
-        <section>
-          <h1 class="middle comic">YES</h1>
-        </section>
-
-        <section>
           <h3 class="middle2"><em>Containers&nbsp;</em> is a little generic</h3>
           <h4>Let's demystify it a bit</h4>
+        </section>
+
+        <section data-state="police">
+          <h3 class="invert comic">Terminology Police!!</h3>
+          <h3 class="invert comic">Gears and Cartridges</h3>
+        </section>
+
+        <section>
+          <h4 class="middle2">Gears == Containers</h4>
+          <h4>Cartridge == Code running in a container</h4>
         </section>
 
         <section>
@@ -315,17 +248,97 @@ end
         </section>
 
         <section data-state="selinux-disable">
-          <h3 class="middle2">Step 1. Unlearn this:</h3>
+          <h3 class="middle2">Step 1. We had to unlearn this:</h3>
           <h4 id="setenforce" class="fragment">$ setenforce 0</h4>
         </section>
 
         <section>
-          <h3>Step 2. Know its strengths</h3>
+          <h3>Step 2. We narrowed the problem space</h3>
           <ul>
             <li>Whitelist approach to security (i.e. MAC)
             <li>Very effective in controlled use cases
             <li>Critical to control malicious activity
           </ul>
+        </section>
+
+      <section data-state="suspect">
+          <h2 class="middle2 spoken">Containers?</h2>
+          <h3 class="spoken">What about virtualization?</h3>
+        </section>
+
+        <section>
+          <h4 class="middle2">Virtualization has many strengths</h4>
+          <h5 class="fragment">(... and disadvantages)</h5>
+        </section>
+
+        <section>
+          <h3 class="middle">Same goes for containers</h3>
+        </section>
+
+        <section>
+          <h3 class="middle">The Challenge: How to <i>interact</i> with containers</h3>
+        </section>
+
+        <section>
+          <h2 class="middle">Enter: MCollective</h2>
+        </section>
+
+        <section>
+          <h3>Server / Agent Architecture</h3>
+          <pre><code>
+metadata :name => "Openshift Origin Management",
+            :description => "Agent to manage Openshift Origin services",
+
+action "cartridge_do", :description => "run a cartridge action" do
+    display :always
+
+    input :cartridge,
+        :type => :string,
+        :validation => '\A[a-zA-Z0-9\.\-\/_]+\z',
+        :optional => false,
+        :maxlength => 64
+...
+
+end
+          </code></pre>
+        </section>
+
+        <section>
+          <h4 class="middle2">Puppet -> Setup new VM</h4>
+          <h4>MCollective -> Setup new Container</h4>
+        </section>
+
+        <section>
+          <h3>Primary Functions</h3>
+          <pre>rhc create-app myapp php-5.3 --from-code=SOME_URL</pre>
+          <ul>
+            <li class="fragment roll-in">Query: Find a matching machine.
+            <li class="fragment roll-in">Execute: Run a command on that machine.
+            <li class="fragment roll-in">Control: Limit the applicable commands.
+          </ul>
+        </section>
+
+        <section>
+          <h4 style="margin-top:150px">Puppet -> Setup new VM</h4>
+          <h4>MCollective -> Setup new Container</h4>
+          <h4>MCollective -> Interact w / Container</h4>
+        </section>
+
+        <section>
+          <h4>Why MCollective versus {other tool}?</h4>
+          <ul>
+            <li class="fragment roll-in">Development: Easy Agent Development
+            <li class="fragment roll-in">Messaging: Utilizes ActiveMQ
+            <li class="fragment roll-in">Security: Message Signing, Audit, etc.
+          </ul>
+        </section>
+
+        <section>
+          <h3 class="middle2">Is this really worth it for containers?</h3>
+        </section>
+
+        <section>
+          <h1 class="middle comic">YES</h1>
         </section>
 
         <section>
@@ -358,6 +371,7 @@ end
             <li>Wizard Tower - http://bit.ly/ZtRKpW
             <li>Crossroads - http://bit.ly/ZgrPl9
             <li>Cheering - http://bit.ly/14em1xV
+            <li>Police Car - http://bit.ly/12q9SFw
             <li>Gridlock - http://bit.ly/IhOM4f
             <li>Japanese House - http://bit.ly/Z5eIUi
             <li>Norad Vault - http://bit.ly/Z5f7pW

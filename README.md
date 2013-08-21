@@ -1,4 +1,5 @@
 Linux Wizardry in OpenShift Presentation
 ========================================
 
-Northeast GNU / Linuxfest Presentation on how OpenShift uses Linux.
+PuppetConf Presentation on how OpenShift uses Puppet, MCollective and
+Containers

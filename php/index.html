@@ -4,9 +4,9 @@
   <head>
     <meta charset="utf-8">
 
-    <title>Wizardry in OpenShift - Matt Hicks</title>
+    <title>Puppet Labs Powered OpenShift - Matt Hicks</title>
 
-    <meta name="description" content="The Linux Wizardry Behind the OpenShift PaaS">
+    <meta name="description" content="The Wizardry Behind the OpenShift PaaS">
     <meta name="author" content="Matt Hicks">
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -106,8 +106,9 @@
 
       <div class="slides">
         <section data-state="wizard">
-          <h3 class="middle2">The Wizardry Behind the OpenShift PaaS</h3>
-          <p>Matt Hicks, Director of OpenShift, Red Hat</p>
+          <h3 class="middle2">Puppet Labs Powered OpenShift</h3>
+          <h5>(The tech wizardy behind OpenShift)</h5><br/>
+          <h5>Matt Hicks, Director of OpenShift, Red Hat</h5>
         </section>
 
         <section data-state="learning">
@@ -124,12 +125,15 @@
         </section>
 
         <section>
-          <h4 class="middle2">If you write apps, we help manage them</h4>
-          <h4>If you manage systems, we'll make it easier</h4>
+          <h4 class="middle">If you write apps, we help manage them</h4>
         </section>
 
         <section>
-          <h3>Hope #1: This is familiar</h3>
+          <h4 class="middle">If you manage systems,<br/> we'll make that easier too</h4>
+        </section>
+
+        <section>
+          <h3>My Hope: This is familiar</h3>
           <pre><code>
 class openshift {
       package { 'openshift-origin-broker':
@@ -172,7 +176,7 @@ echo "Done"
         </section>
 
         <section>
-          <h4 class="middle2">We use Puppet in a variety of standard ways</h4>
+          <h4 class="middle2">We use Puppet in a fairly standard way</h4>
           <a style="font-size: 25px" class="typing" href="https://github.com/openshift/puppet-openshift_origin">https://github.com/openshift/puppet-openshift_origin</a>
         </section>
 
@@ -185,7 +189,7 @@ echo "Done"
         </section>
 
         <section>
-          <h3 class="middle2">We use containers to reduce our VM sprawl</h3>
+          <h3 class="middle2">We focused more on containers than on VM's</h3>
         </section>
 
         <section data-state="wizard">
@@ -284,7 +288,7 @@ echo "Done"
         </section>
 
         <section>
-          <h3>Server / Agent Architecture</h3>
+          <h3>Agent Driven</h3>
           <pre><code>
 metadata :name => "Openshift Origin Management",
             :description => "Agent to manage Openshift Origin services",
@@ -352,6 +356,7 @@ end
             <li>Kernel Namespaces - http://bit.ly/WuXpZm
             <li>CGroups - http://red.ht/14IxJ2l
             <li>SELinux - http://bit.ly/2rTL4h
+            <li>MCollective - http://bit.ly/176PU4g
             <li>OpenShift (GitHub) - http://bit.ly/13Y5xe1
             <li>OpenShift (Google+) - http://bit.ly/VFuWkP
           </ul>
